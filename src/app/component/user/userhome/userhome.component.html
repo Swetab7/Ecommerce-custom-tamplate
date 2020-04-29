@@ -1,0 +1,74 @@
+<body id="top">
+  <div class="bgded" style="background-image:url('./assets/images/demo/backgrounds/01.png');"> 
+    <div class="wrapper row3">
+      <main class="hoc container clear"> 
+          <div class="content"> 
+            <h2>UserHome</h2>
+              <div class="group btmspace-50 demo">
+              <div class="one_half first">
+                  <div class="container">
+                  <div class="row" >
+                    <div class="col-md-3 img">
+                      <img src="{{imageUrl}}" 
+                       alt="image not uploaded" 
+                       class="img-rounded"
+                       height="200px" 
+                       width="200px">
+                    </div>
+                    <div class="col-md-3 details">
+                          <blockquote>
+                            <h5>{{rUser.first_name}} {{rUser.last_name}}</h5>
+                            <small><cite title="Source Title">
+                            <i class="icon-map-marker">{{rUser.email}}</i></cite>
+                            </small>
+                            </blockquote>
+                            <p>
+                            <button (click)="onEdit()" *ngIf="edit_btn" class="btn btn-primary">Edit</button>
+                            </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="one_half">
+                
+                <form [formGroup]="updateForm" (ngSubmit)="update(updateForm)">
+
+                   <div class="form-group">
+                    <label for="formGroupExampleInput">First Name</label>
+                    <input type="text" class="form-control" placeholder="First Name"
+                    formControlName="first_name">
+                   </div>
+
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Last Name</label>
+                    <input type="Text" class="form-control" placeholder="Last Name"
+                    formControlName="last_name" >  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" placeholder="example@gmail.com"
+                    formControlName="email">  
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Upload Image</label>
+                    <input type="file" class="file-uploader" formControlName="profile_picture" 
+                    accept=".png, .jpg, .jpeg" (change)="uploadFile($event)"
+                    >
+                  </div>
+
+                  <button type="submit" 
+                  class="btn btn-primary">Update
+                  </button>
+
+                </form>  
+                
+              </div>
+            </div>
+          </div>
+      </main>
+    </div>
+  </div>
+</body>

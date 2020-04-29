@@ -1,0 +1,61 @@
+<div id="top">
+
+  <div class="bgded" *ngIf="!auth.isLoggedIn()"
+      style="background-image:url('../assets/images/demo/backgrounds/soft.jpeg'); height: 300px;" > 
+    <section id="pageintro" class="hoc clear">
+      <div> 
+        <h2 class="heading"><strong>Please Login </strong></h2>
+     </div>
+    </section>
+  </div>
+
+  <div class="wrapper row3" >
+
+    <article class="hoc container clear"> 
+      <figure class="one_half first">
+        <ul class="nospace">
+          <li class="btmspace-10"><img src="../assets/images/demo/backgrounds/d.jpg" alt="" style="height: 300px; width: 500px;"></li>
+        </ul>
+      </figure>
+      <div class="one_half">
+            <div class="container" *ngIf="auth.isLoggedIn()">
+            <div class="row">
+              <div class="col-md-3 bg-info" style="height: 40px;" >
+                <span>Select a Division</span>
+              </div>
+              <div class="col-md-3" *ngFor="let division of divisions;let i = index">
+                <label class="checkbox-inline" for="{{division.id}}">
+                     <input type="radio" [id]="division.id"
+                     [value]="division.name" name="radio-group"
+                     [checked]="i === 0" [(ngModel)]="selected_Division" />
+                     {{ division.description }}</label> 
+              </div>
+              <button class="btn btn-primary" (click)="setDivision()">ok</button>
+            </div>
+          </div>
+      </div>
+    </article>
+
+
+    
+    <div class="content" *ngIf="division_clicked"> 
+      <div class="group btmspace-50 demo">
+            <div class="row">
+              <div class="col-sm-4" *ngFor="let category of categories;let i=index">
+                <div class="card" (click)="openSubCategory(category)">
+                  <img src="{{category.image?.avatar?.url || 'https://previews.123rf.com/images/martialred/martialred1608/martialred160800018/61263271-user-account-profile-circle-flat-icon-for-apps-and-websites.jpg'}}"
+                  class="card-img-top" alt="..."
+                  class="image" >
+                    <div class="card-body">
+                      <h5 class="card-title">{{category.name}}</h5> 
+                      <a class="btn btn-primary" (click)="openSubCategory(category)">show more relavant item</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  
+  </div>
+
+</div>

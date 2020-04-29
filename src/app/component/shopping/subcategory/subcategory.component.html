@@ -1,0 +1,20 @@
+<div class="wrapper row3" >
+  <main class="hoc container clear"> 
+    <div class="content"> 
+      <div class="group btmspace-50 demo" >
+      <div class="row">
+      	<div class="card" *ngFor="let subCategory of subCategories">
+  	     <img src="{{subCategory.image.avatar_url || 'https://previews.123rf.com/images/martialred/martialred1608/martialred160800018/61263271-user-account-profile-circle-flat-icon-for-apps-and-websites.jpg'}}" class="card-img-top image" alt="..." >
+  	        <div class="card-body">
+  	          <h5 class="card-title">{{subCategory.name}}</h5>
+  	          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  	          <a class="btn btn-primary" (click)="showProducts(subCategory)">products</a>
+  	        </div>
+	     </div>
+      </div>
+
+      </div>
+    </div>
+  </main>
+  </div>
+
