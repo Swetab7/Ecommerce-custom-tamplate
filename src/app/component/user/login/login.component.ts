@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     });
 
     if(this.loginForm.valid && this.error == null ){
-    alert("you are login sussecfully");       
+    // alert("you are login sussecfully");       
       this.loginForm.reset();
 
     }  
